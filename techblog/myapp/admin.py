@@ -1,3 +1,9 @@
 from django.contrib import admin
+from .models import *
 
-# Register your models here.
+class techblogAdmin(admin.ModelAdmin):
+    list_display = ['title', 'description', 'photo']
+
+admin.site.register(techblog, techblogAdmin)
+
+
