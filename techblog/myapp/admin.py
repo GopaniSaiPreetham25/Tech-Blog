@@ -1,9 +1,11 @@
 from django.contrib import admin
-from .models import *
+from django.apps import apps
 
-class techblogAdmin(admin.ModelAdmin):
-    list_display = ['title', 'description', 'photo']
+# Lazy model import to avoid circular import
+techblog = apps.get_model('myapp', 'techblog')
 
-admin.site.register(techblog, techblogAdmin)
-
-
+@admin.register(techblog)
+class TechblogAdmin(admin.ModelAdmin):
+    list_display = ('title', 'discription', 'photo')  # Display these fields in admin
+    search_fields = ('title', 'discription')          # Add search functionality
+    list_filter = ('title',)                          # Filter options by title
