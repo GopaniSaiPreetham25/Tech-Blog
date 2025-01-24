@@ -10,7 +10,7 @@ def insert(request):
             return redirect('myapp:viewdata')
     tb=techblogForm()
     return render(request,'insert.html',{'form':tb})
-
+ 
 def viewdata(request):
     data=techblog.objects.all()
     return render(request,'viewdata.html',{'data':data})

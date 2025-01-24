@@ -5,4 +5,4 @@ class techblogForm(forms.Form):
     class Meta:
         model = techblog
         fields ="__all__"
-
+ 
