@@ -3,5 +3,5 @@ from django.db import models
 # Create your models here.
 class techblog(models.Model):
     tittle=models.CharField(max_length=100)
-    discription=models.TextField()
+    discription=models.TextField() 
     photo=models.ImageField(upload_to='pics')
