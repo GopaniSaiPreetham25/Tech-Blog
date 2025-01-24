@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import techblog
-from .forms import techblogForm
+from .forms import techblogForm 
 
 def insert(request):
     if request.method == 'POST':

@@ -24,4 +24,5 @@ urlpatterns = [
     path('',include('myapp.urls')),
 ]
 
+
 urlpatterns+=static(settings.MEDIA_ROOT,document_root=settings.MEDIA_ROOT)
