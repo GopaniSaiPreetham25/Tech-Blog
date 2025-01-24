@@ -14,3 +14,6 @@ def insert(request):
 def viewdata(request):
     data=techblog.objects.all()
     return render(request,'viewdata.html',{'data':data})
+
+def home(request):
+    return render(request,'home.html')
