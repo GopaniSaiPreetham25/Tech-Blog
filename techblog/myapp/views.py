@@ -16,4 +16,7 @@ def viewdata(request):
     return render(request,'viewdata.html',{'data':data})
 
 def home(request):
-    return render(request,'home.html')
+    return render(request,'p2.html')
+
+def login(request):
+    return render(request,'p1.html')
