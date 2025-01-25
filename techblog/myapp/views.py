@@ -34,12 +34,12 @@ def home(request):
     return render(request,'home.html')
 
 def login(request):
-    return render(request,'p1.html')
+    return render(request,'login.html')
 
-def Createaccount(request):
-    r1=Createaccount()
+def createaccount(request):
+    r1=createaccount()
     if request.method=='POST':
-        r1=Createaccount(request.POST)
+        r1=createaccount(request.POST)
         if r1.is_valid(): 
             r1.save()
             return HttpResponse('<h1> Account is created </h1>')    
