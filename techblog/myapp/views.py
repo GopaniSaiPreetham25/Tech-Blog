@@ -35,6 +35,7 @@ def home(request):
 
 def login(request):
     return render(request,'login.html')
+<<<<<<< HEAD
 
 # views.py
 from django.shortcuts import render
@@ -51,3 +52,15 @@ def createaccount(request):
         form = CreateAccountForm()
     return render(request, "createaccount.html", {'form': form})
 
+=======
+
+def createaccount(request):
+    r1=createaccount()
+    if request.method=='POST':
+        r1=createaccount(request.POST)
+        if r1.is_valid(): 
+            r1.save()
+            return HttpResponse('<h1> Account is created </h1>')    
+    return render(request,"createaccount.html",{'form':r1})
+   
+>>>>>>> f63e2532fa690bf2cb27ff3d6d3753b08b532412
