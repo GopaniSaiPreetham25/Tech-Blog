@@ -3,9 +3,12 @@ from .models import techblog
 
 from django.contrib.auth.models import User
 
-class CreateaccountForm(forms.ModelForm):
+# forms.py
+ # Replace with your actual model
+
+class CreateAccountForm(forms.ModelForm):
     class Meta:
-        model=User
+        model = User
         fields=['username','first_name','last_name','password']
 
 class techblogForm(forms.Form): 
