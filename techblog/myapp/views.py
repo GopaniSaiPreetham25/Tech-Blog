@@ -15,5 +15,20 @@ def viewdata(request):
     data=techblog.objects.all()
     return render(request,'viewdata.html',{'data':data})
 
+def update(request,id):
+    obj=techblog.objects.get(id=id)
+    if request.method == 'POST':
+        form=techblog(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('myapp:viewdata')
+    tb=techblogForm(instance=obj)
+    return render(request,'update.html',{'form':tb})
+
+def delete(request,id):
+    tech=techblog.objects.get(id=id)
+    tech.delete()
+    return redirect('myapp:viewdata')
+
 def home(request):
     return render(request,'home.html')
