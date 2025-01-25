@@ -31,7 +31,7 @@ def delete(request,id):
     return redirect('myapp:viewdata')
 
 def home(request):
-    return render(request,'p2.html')
+    return render(request,'home.html')
 
 def login(request):
     return render(request,'p1.html')
@@ -44,3 +44,4 @@ def Createaccount(request):
             r1.save()
             return HttpResponse('<h1> Account is created </h1>')    
     return render(request,"p3.html",{'form':r1})
+    return render(request,'login.html')
