@@ -3,7 +3,7 @@ from .models import techblog
 
 from django.contrib.auth.models import User
 
-class CreateaccountForm(forms.ModelForm):
+class createaccountForm(forms.ModelForm):
     class Meta:
         model=User
         fields=['username','first_name','last_name','password']
