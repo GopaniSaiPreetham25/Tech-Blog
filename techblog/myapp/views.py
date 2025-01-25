@@ -43,5 +43,5 @@ def Createaccount(request):
         if r1.is_valid(): 
             r1.save()
             return HttpResponse('<h1> Account is created </h1>')    
-    return render(request,"p3.html",{'form':r1})
-    return render(request,'login.html')
+    return render(request,"createaccount.html",{'form':r1})
+   
