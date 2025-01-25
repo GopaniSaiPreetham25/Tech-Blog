@@ -1,5 +1,4 @@
 from django.db import models
-
 # Create your models here.
 
 class techblog(models.Model):
@@ -7,4 +6,5 @@ class techblog(models.Model):
     discription=models.TextField() 
     photo=models.ImageField(upload_to='pics')
     
+
 
