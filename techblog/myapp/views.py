@@ -19,6 +19,7 @@ def update(request,id):
     obj=techblog.objects.get(id=id)
     if request.method == 'POST':
         form=techblogForm(request.POST,request.FILES)
+        form=techblog(request.POST,request.FILES)
         if form.is_valid():
             form.save()
             return redirect('myapp:viewdata')
@@ -31,4 +32,7 @@ def delete(request,id):
     return redirect('myapp:viewdata')
 
 def home(request):
-    return render(request,'home.html')
+    return render(request,'p2.html')
+
+def login(request):
+    return render(request,'p1.html')

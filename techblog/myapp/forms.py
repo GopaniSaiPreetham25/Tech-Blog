@@ -6,3 +6,4 @@ class techblogForm(forms.Form):
         model = techblog
         fields ="__all__" 
  
+        fields='__all__'
