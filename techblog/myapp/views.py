@@ -31,7 +31,7 @@ def delete(request,id):
     return redirect('myapp:viewdata')
 
 def home(request):
-    return render(request,'p2.html')
+    return render(request,'home.html')
 
 def login(request):
-    return render(request,'p1.html')
+    return render(request,'login.html')
