@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'css/p1.css' %}">
+    <script src="{% static 'js/p1.js' %}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="email">Gmail:</label>
+                <input type="email" id="email" placeholder="Enter your Gmail">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Enter your password">
+            </div>
+            <div class="buttons">
+                <button class="login" onclick="login()">Login</button>
+                <button class="create" onclick="createAccount()">Create Account</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
