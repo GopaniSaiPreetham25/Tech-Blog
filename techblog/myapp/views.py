@@ -34,7 +34,7 @@ def home(request):
     return render(request,'home.html')
 
 def login(request):
-    return render(request,'p1.html')
+    return render(request,'login.html')
 
 def Createaccount(request):
     r1=Createaccount()
@@ -43,5 +43,5 @@ def Createaccount(request):
         if r1.is_valid(): 
             r1.save()
             return HttpResponse('<h1> Account is created </h1>')    
-    return render(request,"p3.html",{'form':r1})
-    return render(request,'login.html')
+    return render(request,"Createaccount.html",{'form':r1})
+    # return render(request,'login.html')
