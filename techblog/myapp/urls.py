@@ -10,5 +10,7 @@ urlpatterns=[
     path('delete/<int:id>',delete,name='delete'),
     path('',home,name='home'),
     path('Createaccount/',Createaccount,name='Createaccount'),
+    path('home/',home,name='home'),
+    path('createaccount/',createaccount,name='createaccount'),
     path('login/',login,name='login'),
 ]
