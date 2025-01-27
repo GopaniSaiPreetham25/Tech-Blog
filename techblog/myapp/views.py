@@ -1,3 +1,6 @@
+from django.shortcuts import render,redirect
+from .models import techblog
+from .forms import techblogForm 
 from django.shortcuts import render,redirect,HttpResponse
 from .models import *
 from .forms import *
@@ -18,6 +21,7 @@ def main(request):
 def update(request,id):
     obj=techblog.objects.get(id=id)
     if request.method == 'POST':
+        form=techblogForm(request.POST,request.FILES)
         form=techblog(request.POST,request.FILES)
         if form.is_valid():
             form.save()
