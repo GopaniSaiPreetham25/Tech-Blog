@@ -1,81 +1,78 @@
-/* createaccount.css */
-body {
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    /* background: url('https://source.unsplash.com/random/1600x900/?nature') no-repeat center center/cover; */
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    flex-direction: column; /* Stack items vertically */
-}
+    min-height: 100vh;
+  }
 
-h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px; /* Add some space between the heading and the form */
-}
-
-form {
-    background: #fff;
-    padding: 20px 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  .card {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    padding: 20px;
     width: 100%;
     max-width: 400px;
-}
+  }
 
-form p {
+  .card h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
     margin-bottom: 15px;
-}
+  }
 
-form label {
+  .form-group label {
     display: block;
     margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-}
+    font-size: 14px;
+  }
 
-form input[type="text"],
-form input[type="email"],
-form input[type="password"] {
+  .form-group input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
-    margin-top: 5px;
-}
+    border-radius: 8px;
+    font-size: 14px;
+  }
 
-form input[type="text"]:focus,
-form input[type="email"]:focus,
-form input[type="password"]:focus {
-    border-color: #007BFF;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-button[type="submit"] {
+  .btn {
     width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    background-color: #28a745;
+    padding: 10px;
+    background-color: #007BFF;
     color: white;
+    border: none;
+    border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .btn:hover {
+    background-color: #0056b3;
+  }
+
+  .link {
+    display: block;
+    text-align: center;
     margin-top: 10px;
-    transition: background-color 0.3s ease;
-}
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+  }
 
-button[type="submit"]:hover {
-    background-color: #218838;
-}
-
-@media (max-width: 480px) {
-    form {
-        padding: 15px 20px;
-    }
-}
+  .link:hover {
+    color: #0056b3;
+  }
