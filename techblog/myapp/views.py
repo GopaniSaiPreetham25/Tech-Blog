@@ -1,6 +1,9 @@
 from django.shortcuts import render,redirect
 from .models import techblog
 from .forms import techblogForm 
+from django.shortcuts import render,redirect,HttpResponse
+from .models import *
+from .forms import *
 
 def insert(request):
     if request.method == 'POST':
@@ -32,7 +35,26 @@ def delete(request,id):
     return redirect('myapp:viewdata')
 
 def home(request):
-    return render(request,'p2.html')
+    return render(request,'home.html')
 
 def login(request):
-    return render(request,'p1.html')
+    return render(request,'login.html')
+
+# views.py
+from django.shortcuts import render
+from django.http import HttpResponse
+from .forms import CreateAccountForm
+
+def createaccount(request):
+    if request.method == 'POST':
+        form = CreateAccountForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('<h1>Account is created</h1>')
+    else:
+        form = CreateAccountForm()
+    return render(request, "createaccount.html", {'form': form})
+
+
+
+   

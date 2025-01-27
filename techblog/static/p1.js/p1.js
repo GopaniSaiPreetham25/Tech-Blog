@@ -12,3 +12,7 @@ function createAccount() {
     alert('Redirecting to account creation...');
     // Add create account functionality here
 }
+function createAccount() {
+    // Redirect to the Create Account page
+    window.location.href = '/create-account/';
+}
