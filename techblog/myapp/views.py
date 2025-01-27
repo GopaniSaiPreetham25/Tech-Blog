@@ -36,12 +36,12 @@ def home(request):
 def login(request):
     return render(request,'login.html')
 
-def Createaccount(request):
-    r1=Createaccount()
-    if request.method=='POST':
-        r1=Createaccount(request.POST)
-        if r1.is_valid(): 
-            r1.save()
-            return HttpResponse('<h1> Account is created </h1>')    
-    return render(request,"Createaccount.html",{'form':r1})
-    # return render(request,'login.html')
+def createaccount(request):
+    if request.method == 'POST':
+        form = CreateAccountForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('<h1>Account is created</h1>')
+    else:
+        form = CreateAccountForm()
+    return render(request, "createaccount.html", {'form': form})
