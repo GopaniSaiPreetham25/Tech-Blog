@@ -46,7 +46,7 @@ def createaccount(request):
         form = CreateAccountForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse('<h1>Account is created</h1>')
+            return redirect ('myapp:home')
     else:
         form = CreateAccountForm()
     return render(request, "createaccount.html", {'form': form})
