@@ -19,7 +19,7 @@ function login() {
         alert('Please fill in all fields');
         return;
     }
-    alert('Logging in...');
+    // alert('Logging in...');
     // Add login functionality here
 }
 function createAccount() {

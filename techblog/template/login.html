@@ -21,7 +21,9 @@
                 <input type="password" id="password" placeholder="Enter your password">
             </div>
             <div class="buttons">
+                <a href="{% url 'myapp:main' %}">
                 <button class="login" onclick="login()">Login</button>
+                </a>
                 <a href="{% url 'myapp:createaccount' %}">
                 <button class="create" >Create account</button>
                 </a>

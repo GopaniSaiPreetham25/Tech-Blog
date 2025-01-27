@@ -11,9 +11,9 @@ def insert(request):
     tb=techblogForm()
     return render(request,'insert.html',{'form':tb})
  
-def viewdata(request):
+def main(request):
     data=techblog.objects.all()
-    return render(request,'viewdata.html',{'data':data})
+    return render(request,'main.html',{'data':data})
 
 def update(request,id):
     obj=techblog.objects.get(id=id)

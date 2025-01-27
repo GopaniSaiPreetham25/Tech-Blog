@@ -5,7 +5,7 @@ app_name='myapp'
 
 urlpatterns=[
     path('insert/',insert,name='insert'),
-    path('viewdata/',viewdata,name='viewdata'),
+    path('main/',main,name='main'),
     path('update/<int:id>',update,name='update'),
     path('delete/<int:id>',delete,name='delete'),
     path('',home,name='home'),
