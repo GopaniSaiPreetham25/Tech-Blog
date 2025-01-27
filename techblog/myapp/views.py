@@ -36,12 +36,13 @@ def home(request):
 def login(request):
     return render(request,'login.html')
 
+
 def createaccount(request):
     if request.method == 'POST':
-        form = CreateAccountForm(request.POST)
+        form=CreateAccountForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse('<h1>Account is created</h1>')
+            return redirect('myapp:main')
     else:
         form = CreateAccountForm()
     return render(request, "createaccount.html", {'form': form})
