@@ -9,7 +9,7 @@ urlpatterns=[
     path('update/<int:id>',update,name='update'),
     path('delete/<int:id>',delete,name='delete'),
     path('',home,name='home'),
-    path('Createaccount/',Createaccount,name='Createaccount'),
+    path('createaccount/',createaccount,name='createaccount'),
     path('home/',home,name='home'),
     path('login/',login,name='login'),
 ]
