@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tech Blog</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <script src="{% static 'js/main.js' %}"></script>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="C:\Users\nagat\OneDrive\Desktop\proj\logo.png" alt="">
+            <h1>TechBlog</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li>
+                <div class="search-container">
+                    <input type="text" placeholder="Search..." id="search-bar">
+                    <button onclick="searchFunction()">Search</button></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section id="home">
+            <div class="hero">
+                <h2>Welcome to the Future of Technology</h2>
+                <p>Stay updated with the latest trends, innovations, and insights in the tech world.</p>
+            </div>
+        </section>
+
+        <section id="blog">
+            <h2>Recent Posts</h2>
+            <div class="posts">
+                <div class="post">
+                    <img src="https://via.placeholder.com/300" alt="Post 1">
+                    <div class="post-content">
+                        <h3>Understanding AI in 2025</h3>
+                        <p class="post-date">January 26, 2025</p>
+                        <p class="post-excerpt">Artificial Intelligence is evolving rapidly. Let's dive into the trends shaping its future.</p>
+                        <button onclick="alert('Read more about AI')">Read More</button>
+                    </div>
+                </div>
+                <div class="post">
+                    <img src="https://via.placeholder.com/300" alt="Post 2">
+                    <div class="post-content">
+                        <h3>The Rise of Quantum Computing</h3>
+                        <p class="post-date">January 15, 2025</p>
+                        <p class="post-excerpt">Quantum computing is no longer science fiction. Learn about its potential impact on industries.</p>
+                        <button onclick="alert('Read more about Quantum Computing')">Read More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 TechBlog. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
