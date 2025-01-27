@@ -11,9 +11,9 @@ def insert(request):
     tb=techblogForm()
     return render(request,'insert.html',{'form':tb})
  
-def viewdata(request):
+def main(request):
     data=techblog.objects.all()
-    return render(request,'viewdata.html',{'data':data})
+    return render(request,'main.html',{'data':data})
 
 def update(request,id):
     obj=techblog.objects.get(id=id)
@@ -36,21 +36,13 @@ def home(request):
 def login(request):
     return render(request,'login.html')
 
-# views.py
-from django.shortcuts import render
-from django.http import HttpResponse
-from .forms import CreateAccountForm
 
 def createaccount(request):
     if request.method == 'POST':
-        form = CreateAccountForm(request.POST)
+        form=CreateAccountForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect ('myapp:home')
+            return redirect('myapp:main')
     else:
         form = CreateAccountForm()
     return render(request, "createaccount.html", {'form': form})
-
-
-
-   
