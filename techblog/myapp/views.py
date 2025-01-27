@@ -49,3 +49,7 @@ def createacc(request):
     else:
         form1 = CreateAccountForm()
     return render(request, "createacc.html", {'form': form1})
+
+def blog(request):
+    return render(request,'blog.html')
+

@@ -12,4 +12,5 @@ urlpatterns=[
     path('createacc/',createacc,name='createacc'),
     path('home/',home,name='home'),
     path('login/',login,name='login'),
+    path('blog/',blog,name='blog'),
 ]
