@@ -24,10 +24,11 @@
         <label for="confirm-password">Confirm Password</label>
         <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
       </div>
-      <button type="submit" class="btn">Create Account</button>
+      <a href="{% url 'myapp:main' %}">
+      <button type="submit" class="btn">Create Account</button></a>
     </form>
     <a href="{% url 'myapp:login' %}" class="link">Already have an account? Log in</a>
-    <a href="{% url 'myapp:password_reset' %}" class="link">Forgot your password?</a>
+    <a href="{% url 'myapp:home' %}" class="link">Forgot your password?</a>
   </div>
   
 </body>
