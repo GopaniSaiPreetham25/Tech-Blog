@@ -12,7 +12,8 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Create Account</button>
+        <a href="{% url 'myapp:main' %}">
+        <button type="submit">Create Account</button></a>
     </form>
 </body>
 </html>

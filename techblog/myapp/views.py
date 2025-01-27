@@ -36,7 +36,6 @@ def home(request):
 def login(request):
     return render(request,'login.html')
 
-
 def createaccount(request):
     if request.method == 'POST':
         form=CreateAccountForm(request.POST)
