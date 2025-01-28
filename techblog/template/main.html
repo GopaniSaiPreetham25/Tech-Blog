@@ -29,6 +29,7 @@
                 </div>
             </ul>
         </nav>
+            
     </header>
 
     <!-- Main Content -->
@@ -40,7 +41,15 @@
             </div>
         </section>
 
-        <section id="blog">
+        <div>
+            {% for i in data %}
+            {{ i.title }} <br>
+            {{ i.discription }} <br>
+            <img src="{{ i.photo.url }}" alt="{{ i.photo }}"> <br>
+            {% endfor %}
+        </div>
+
+        <!-- <section id="blog">
             <h2>Recent Posts</h2>
             <div class="posts">
                 <div class="post">
@@ -62,7 +71,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
     </main>
 
