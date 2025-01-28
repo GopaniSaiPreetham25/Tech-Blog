@@ -16,5 +16,5 @@ document.getElementById('create-account-form').addEventListener('submit', functi
     }
 
     alert('Account created successfully! Redirecting to home page...');
-    window.location.href = "{% url 'myapp:home' %}";
+    window.location.href = "{% url 'home' %}";
   });
