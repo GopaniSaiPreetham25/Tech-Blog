@@ -3,34 +3,34 @@ from .models import techblog
 from .forms import techblogForm 
 
 
-def insert(request):
+def blog(request):
     if request.method == 'POST':
-        form = techblogForm(request.POST,request.FILES)
+        form = techblogForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('myapp:viewdata')
+            return redirect('main.html')
     tb=techblogForm()
-    return render(request,'insert.html',{'form':tb})
+    return render(request,'blog.html',{'form':tb})
  
 def main(request):
     data=techblog.objects.all()
     return render(request,'main.html',{'data':data})
 
-def update(request,id):
-    obj=techblog.objects.get(id=id)
-    if request.method == 'POST':
-        form=techblogForm(request.POST,request.FILES)
-        form=techblog(request.POST,request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('myapp:viewdata')
-    tb=techblogForm(instance=obj)
-    return render(request,'update.html',{'form':tb})
+# def update(request,id):
+#     obj=techblog.objects.get(id=id)
+#     if request.method == 'POST':
+#         form=techblogForm(request.POST,request.FILES)
+#         form=techblog(request.POST,request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('myapp:main')
+#     tb=techblogForm(instance=obj)
+#     return render(request,'update.html',{'form':tb})
 
-def delete(request,id):
-    tech=techblog.objects.get(id=id)
-    tech.delete()
-    return redirect('myapp:viewdata')
+# def delete(request,id):
+#     tech=techblog.objects.get(id=id)
+#     tech.delete()
+#     return redirect('myapp:main')
 
 def home(request):
     return render(request,'home.html')
@@ -52,6 +52,5 @@ def createacc(request):
         form1 = CreateAccountForm()
     return render(request, "createacc.html", {'form': form1})
 
-def blog(request):
-    return render(request,'blog.html')
+
 
