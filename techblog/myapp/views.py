@@ -2,7 +2,6 @@ from django.shortcuts import render,redirect
 from .models import *
 from .forms import *
 
-
 def blog(request):
     if request.method == 'POST':
         form = techblogForm(request.POST, request.FILES)
