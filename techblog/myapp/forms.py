@@ -1,6 +1,11 @@
 from django import forms
 from .models import techblog
 
+class techblogForm(forms.Form): 
+    class Meta:
+        model = techblog
+        fields =['title','discription','photo']
+
 from django.contrib.auth.models import User
 
 # forms.py
@@ -11,7 +16,4 @@ class CreateAccountForm(forms.ModelForm):
         model = User
         fields=['email','first_name','last_name','password']
 
-class techblogForm(forms.Form): 
-    class Meta:
-        model = techblog
-        fields ="__all__" 
+
