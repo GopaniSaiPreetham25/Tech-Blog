@@ -41,13 +41,25 @@
             </div>
         </section>
 
-        <div>
+        <div class="card-grid">
+            {% for i in data %}
+            <div class="card">
+                <img src="{{ i.photo.url }}" alt="{{ i.photo }}" class="card-image">
+                <div class="card-content">
+                    <h2 class="card-title">{{ i.title }}</h2>
+                    <p class="card-description">{{ i.discription }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        
+
+        <!-- <div>
             {% for i in data %}
             {{ i.title }} <br>
             {{ i.discription }} <br>
             <img src="{{ i.photo.url }}" alt="{{ i.photo }}"> <br>
             {% endfor %}
-        </div>
+        </div> -->
 
         <!-- <section id="blog">
             <h2>Recent Posts</h2>
