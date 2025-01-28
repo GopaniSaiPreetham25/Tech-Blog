@@ -25,7 +25,8 @@
         <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
       </div>
       <a href="{% url 'myapp:main' %}">
-      <button type="submit" class="btn">Create Account</button></a>
+        <button type="button" class="btn">Create Account</button>
+      </a>
     </form>
     <a href="{% url 'myapp:login' %}" class="link">Already have an account? Log in</a>
     <a href="{% url 'myapp:home' %}" class="link">Forgot your password?</a>
