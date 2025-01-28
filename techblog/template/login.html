@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <script src="{% static 'js/login.js' %}"></script>
+</head>
+<body >
+    <div class="container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="email">Gmail:</label>
+                <input type="email" id="email" placeholder="Enter your Username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Enter your password">
+            </div>
+            <div class="buttons">
+                <a href="{% url 'myapp:main' %}">
+                <button class="login" onclick="login()">Login</button>
+                </a>
+                <a href="{% url 'myapp:createacc' %}">
+                <button class="create" >Create account</button>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
+
