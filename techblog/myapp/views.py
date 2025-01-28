@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
-from .models import techblog
-from .forms import techblogForm 
+from .models import *
+from .forms import *
 
 
 def blog(request):
@@ -8,9 +8,31 @@ def blog(request):
         form = techblogForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('main.html')
+            return redirect('myapp:main')
     tb=techblogForm()
     return render(request,'blog.html',{'form':tb})
+
+
+
+
+
+
+# from django.shortcuts import render, redirect
+# from .forms import *
+
+# def blog(request):
+#     if request.method == 'POST':
+#         form = techblogForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             # Redirect to the desired URL pattern name or another page
+#             return redirect('main')  # Replace 'main' with the correct name of your URL pattern
+#     else:
+#         form = techblogForm()
+
+#     # Pass the form to the template context
+#     return render(request, 'blog.html', {'form': form})
+
  
 def main(request):
     data=techblog.objects.all()
