@@ -75,3 +75,11 @@ def createacc(request):
 
 
 
+from django.shortcuts import render
+from datetime import datetime
+
+def about(request):
+    context = {
+        'year': datetime.now().year
+    }
+    return render(request, 'about.html', context)
