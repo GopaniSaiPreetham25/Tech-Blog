@@ -7,12 +7,6 @@ class techblog(models.Model):
     discription = models.TextField()
     photo = models.ImageField(upload_to='pics/',null=True,blank=True)
     likes = models.PositiveIntegerField(default=0)
-    title=models.CharField(max_length=100)
-    discription=models.TextField() 
-    photo=models.ImageField(upload_to='pics') 
-
-    
-
 
 class Comment(models.Model):
     post = models.ForeignKey(techblog, on_delete=models.CASCADE)
