@@ -44,7 +44,7 @@
                 </div>
             </section>
 
-            <!-- Display Latest Blog Posts -->
+             Display Latest Blog Posts -->
             <section id="blog">
                 <h2>Recent Posts</h2>
                 <div class="posts">
@@ -64,6 +64,7 @@
                             <a href="{% url 'myapp:post_detail' post.id %}">Read More</a>
                             
                             <!-- Like and Comment Section -->
+                             
                             <div class="post-actions">
                                 <button onclick="likePost({{ post.id }})">Like (<span id="like-count-{{ post.id }}">{{ post.likes }}</span>)</button>
                             </div>
