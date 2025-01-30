@@ -35,6 +35,7 @@ from .views import *
 
 app_name = 'myapp'
 
+<<<<<<< HEAD
 urlpatterns = [
     path('', home, name='home'),
     path('home/', home, name='home'),  # Keeping one home URL
@@ -49,3 +50,16 @@ urlpatterns = [
     path('update/<int:id>/', update, name='update'),
     path('delete/<int:id>/', delete, name='delete'),
 ]
+=======
+urlpatterns=[
+    path('',home,name='home'),
+    path('blog/',blog,name='blog'),
+    path('main/',main,name='main'),
+    # path('update/<int:id>',update,name='update'),
+    # path('delete/<int:id>',delete,name='delete'),
+    path('createacc/',createacc,name='createacc'),
+    path('home/',home,name='home'),
+    path('login/',login,name='login'),
+    path('about/',about,name='about')
+]
+>>>>>>> f089e8d1f665669e5a46f32c9063b5eea6dafdab

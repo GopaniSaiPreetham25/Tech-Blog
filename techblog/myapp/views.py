@@ -2,6 +2,7 @@
 # from .models import *
 # from .forms import *
 
+<<<<<<< HEAD
 
 # def blog(request):
 #     if request.method == 'POST':
@@ -69,6 +70,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import techblog
 from .forms import techblogForm, CreateAccountForm
 
+=======
+>>>>>>> f089e8d1f665669e5a46f32c9063b5eea6dafdab
 def blog(request):
     if request.method == 'POST':
         form = techblogForm(request.POST, request.FILES)
@@ -119,8 +122,19 @@ def update(request, id):
         form = techblogForm(instance=obj)
     return render(request, 'update.html', {'form': form})
 
+<<<<<<< HEAD
 
 def delete(request, id):
     tech = get_object_or_404(techblog, id=id)
     tech.delete()
     return redirect('myapp:main')
+=======
+from django.shortcuts import render
+from datetime import datetime
+
+def about(request):
+    context = {
+        'year': datetime.now().year
+    }
+    return render(request, 'about.html', context)
+>>>>>>> f089e8d1f665669e5a46f32c9063b5eea6dafdab
