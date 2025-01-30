@@ -20,7 +20,7 @@
         <p class="post-date">{{ post.date_posted|date:"F j, Y" }}</p>
         <p>{{ post.discription }}</p>
     </article>
-
+    
     <div class="post-actions">
         <button onclick="likePost({{ post.id }})">Like (<span id="like-count-{{ post.id }}">{{ post.likes }}</span>)</button>
     </div>
