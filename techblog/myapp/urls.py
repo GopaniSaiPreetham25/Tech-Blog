@@ -12,5 +12,5 @@ urlpatterns=[
     path('createacc/',createacc,name='createacc'),
     path('home/',home,name='home'),
     path('login/',login,name='login'),
-    path('about/',about,name=about),
+    path('about/',about,name='about')
 ]
