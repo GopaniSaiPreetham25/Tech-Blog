@@ -51,11 +51,6 @@ def update(request, id):
         form = techblogForm(instance=obj)
     return render(request, 'update.html', {'form': form})
 
-
-def delete(request, id):
-    tech = get_object_or_404(techblog, id=id)
-    tech.delete()
-    return redirect('myapp:main')
 from django.shortcuts import render
 from datetime import datetime
 
