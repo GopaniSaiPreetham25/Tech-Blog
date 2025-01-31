@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect
 from .models import *
 from .forms import *
+from django.contrib.auth import authenticate,login
+from django.contrib.auth.decorators import login_required
 
 def blog(request):
     if request.method == 'POST':
@@ -33,9 +35,7 @@ def blog(request):
 #     return render(request, 'blog.html', {'form': form})
 
  
-def main(request):
-    data=techblog.objects.all()
-    return render(request,'main.html',{'data':data})
+
 
 # def update(request,id):
 #     obj=techblog.objects.get(id=id)
@@ -56,8 +56,29 @@ def main(request):
 def home(request):
     return render(request,'home.html')
 
+
+@login_required
+def main(request):
+    data=techblog.objects.all()
+    return render(request,'main.html',{'data':data})
+
 def login(request):
-    return render(request,'login.html')
+    l1=loginForm()
+    if request.method='POST':
+        l1=loginForm(request.POST)
+        if l1.is_valid():
+            username=l1.cleaned_data.get('username')
+            password=l1.cleaned_data.get('password')
+            user=authenticate(request,username=username,password=password)
+            if user:
+                login(request,user):
+                return redirect('myapp:main')
+            else:
+                return HttpResponse("Invalid username and password")
+    return render(request,'login.html',{'form':l1})
+
+
+
 
 from django.shortcuts import render,redirect
 from .models import *
