@@ -1,14 +1,11 @@
-<<<<<<< HEAD
 from django.shortcuts import render,redirect
 from .models import *
 from .forms import *
 from django.contrib.auth import authenticate,login
 from django.contrib.auth.decorators import login_required
-=======
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import techblog
 from .forms import techblogForm, CreateAccountForm
->>>>>>> e8bd56407ac1fcdf0f6c9c4286de5262f0a71e9f
 
 def blog(request):
     if request.method == 'POST':
@@ -23,7 +20,6 @@ def blog(request):
     return render(request, 'blog.html', {'form': form, 'posts': posts})
 
 
-<<<<<<< HEAD
 
 
 
@@ -46,11 +42,9 @@ def blog(request):
 
  
 
-=======
 def main(request):
     data = techblog.objects.all()
     return render(request, 'main.html', {'data': data})
->>>>>>> e8bd56407ac1fcdf0f6c9c4286de5262f0a71e9f
 
 def post_detail(request, post_id):
     post = get_object_or_404(techblog, id=post_id)  
@@ -66,7 +60,6 @@ def main(request):
     return render(request,'main.html',{'data':data})
 
 def login(request):
-<<<<<<< HEAD
     l1=loginForm()
     if request.method='POST':
         l1=loginForm(request.POST)
@@ -87,9 +80,6 @@ def login(request):
 from django.shortcuts import render,redirect
 from .models import *
 from .forms import CreateAccountForm
-=======
-    return render(request, 'login.html')
->>>>>>> e8bd56407ac1fcdf0f6c9c4286de5262f0a71e9f
 
 def createacc(request):
     if request.method == 'POST':
