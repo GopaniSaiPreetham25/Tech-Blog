@@ -6,10 +6,7 @@ class techblogForm(forms.ModelForm):
         model = techblog
         fields =['title','discription','photo']
 
-class loginForm(forms.ModelForm):
-    class Meta:
-        model=login
-        fields="__all__"
+
 
 
 from django.contrib.auth.models import User
