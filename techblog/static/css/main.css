@@ -151,19 +151,6 @@ footer {
    cursor:pointer; 
 }
 
-<<<<<<< HEAD
-.search-container button:hover { 
-   background-color:#666; 
-}
-
-/* Media Queries for Responsive Design */
-@media (max-width:768px) { 
-   .post { 
-       width:auto; /* On smaller screens, make each post take full width */ 
-       width : calc(100% -1 rem); /* Adjust for full width on small screens */  
-   }  
-}
-=======
 .search-container button:hover {
     background-color: #666;
 }
@@ -215,4 +202,3 @@ footer {
     color: #4b5563;
     margin-top: 0.5rem;
 }
->>>>>>> f089e8d1f665669e5a46f32c9063b5eea6dafdab
