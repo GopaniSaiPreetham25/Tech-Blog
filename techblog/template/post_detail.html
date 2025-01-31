@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+
+<header>
+    <h1>{{ post.title }}</h1>
+    <a href="{% url 'myapp:blog' %}">Back to Blog</a>
+</header>
+
+<main>
+    <article>
+        <img src="https://tse4.mm.bing.net/th?id=OIP.D4llCkUDMVP7mHbADkQvwwHaHa&pid=Api&P=0&h=180" alt="{{ post.title }}">
+        <p class="post-date">{{ post.date_posted|date:"F j, Y" }}</p>
+        <p>{{ post.discription }}</p>
+    </article>
+    
+    <div class="post-actions">
+        <button onclick="likePost({{ post.id }})">Like (<span id="like-count-{{ post.id }}">{{ post.likes }}</span>)</button>
+    </div>
+
+    <div class="comment-section">
+        <textarea id="comment-input-{{ post.id }}" placeholder="Write a comment..."></textarea>
+        <button onclick="submitComment({{ post.id }})">Comment</button>
+    </div>
+
+    <div id="comments-{{ post.id }}">
+        {% for comment in post.comments.all %}
+            <p><strong>{{ comment.user }}</strong>: {{ comment.text }}</p>
+        {% empty %}
+            <p>No comments yet.</p>
+        {% endfor %}
+    </div>
+</main>
+
+<script>
+    function likePost(postId) {
+        let likeCount = document.getElementById('like-count-' + postId);
+        let currentLikes = parseInt(likeCount.innerText);
+        likeCount.innerText = currentLikes + 1;
+    }
+
+    function submitComment(postId) {
+        let commentInput = document.getElementById('comment-input-' + postId);
+        let commentText = commentInput.value;
+        if (commentText.trim() === "") return;
+        
+        let commentSection = document.getElementById('comments-' + postId);
+        let newComment = document.createElement('p');
+        newComment.innerHTML = `<strong>You</strong>: ${commentText}`;
+        commentSection.appendChild(newComment);
+        commentInput.value = "";
+    }
+</script>
+
+</body>
+</html>
