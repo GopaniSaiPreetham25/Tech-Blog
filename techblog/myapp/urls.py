@@ -12,5 +12,4 @@ urlpatterns = [
     path('main/', main, name='main'),
     path('blog/<int:post_id>/', post_detail, name='post_detail'), 
     path('about/',about,name='about')# Detail page for posts
-
 ]

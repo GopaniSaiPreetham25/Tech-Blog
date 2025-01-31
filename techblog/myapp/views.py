@@ -10,7 +10,6 @@ def blog(request):
             return redirect('myapp:main')
     else:
         form = techblogForm()
-
     posts = techblog.objects.all().order_by('-id')  
     return render(request, 'blog.html', {'form': form, 'posts': posts})
 
