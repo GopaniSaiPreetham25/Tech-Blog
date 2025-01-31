@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import techblog
 from .forms import techblogForm, CreateAccountForm
+from django.shortcuts import render
+from datetime import datetime
 
 def blog(request):
     if request.method == 'POST':
@@ -13,7 +15,6 @@ def blog(request):
 
     posts = techblog.objects.all().order_by('-id')  
     return render(request, 'blog.html', {'form': form, 'posts': posts})
-
 
 def main(request):
     data = techblog.objects.all()
@@ -39,7 +40,6 @@ def createacc(request):
         form1 = CreateAccountForm()
     return render(request, "createacc.html", {'form': form1})
 
-
 def update(request, id):
     obj = get_object_or_404(techblog, id=id)
     if request.method == 'POST':
@@ -51,16 +51,10 @@ def update(request, id):
         form = techblogForm(instance=obj)
     return render(request, 'update.html', {'form': form})
 
-<<<<<<< HEAD
-=======
-
 def delete(request, id):
     tech = get_object_or_404(techblog, id=id)
     tech.delete()
     return redirect('myapp:main')
->>>>>>> 3aa15211ea1d3879558ea68e4410940506259515
-from django.shortcuts import render
-from datetime import datetime
 
 def about(request):
     context = {

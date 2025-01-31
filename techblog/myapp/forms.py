@@ -8,9 +8,6 @@ class techblogForm(forms.ModelForm):
 
 from django.contrib.auth.models import User
 
-# forms.py
- # Replace with your actual model
-
 class CreateAccountForm(forms.ModelForm):
     class Meta:
         model = User
