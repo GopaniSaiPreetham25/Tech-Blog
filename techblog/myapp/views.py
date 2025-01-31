@@ -12,6 +12,7 @@ def blog(request):
             return redirect('myapp:main')
     else:
         form = techblogForm()
+
     posts = techblog.objects.all().order_by('-id')  
     return render(request, 'blog.html', {'form': form, 'posts': posts})
 
@@ -54,8 +55,6 @@ def delete(request, id):
     tech = get_object_or_404(techblog, id=id)
     tech.delete()
     return redirect('myapp:main')
-from django.shortcuts import render
-from datetime import datetime
 
 def about(request):
     context = {
