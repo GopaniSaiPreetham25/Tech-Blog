@@ -1,3 +1,4 @@
+
 from django.urls import path
 from .views import *
 
@@ -12,3 +13,4 @@ urlpatterns = [
     path('blog/<int:post_id>/', post_detail, name='post_detail'), 
     path('about/',about,name='about')
 ]
+

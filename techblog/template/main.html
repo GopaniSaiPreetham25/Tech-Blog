@@ -44,6 +44,7 @@
                 </div>
             </section>
 
+             <!---Display Latest Blog Posts -->
             
             <section id="blog">
                 <h2>Recent Posts</h2>
@@ -108,7 +109,7 @@
                 
                 let commentSection = document.getElementById('comments-' + postId);
                 let newComment = document.createElement('p');
-                newComment.innerHTML = `<strong>You</strong>: ${commentText}`;
+                newComment.innerHTML = <strong>You</strong>: ${commentText};
                 commentSection.appendChild(newComment);
                 commentInput.value = "";
             }
@@ -117,4 +118,3 @@
         {% endblock %}
     </body>
     </html>
-
