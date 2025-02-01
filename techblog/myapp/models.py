@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
 
 
 class techblog(models.Model):
@@ -7,7 +6,8 @@ class techblog(models.Model):
     discription = models.TextField()
     photo = models.ImageField(upload_to='pics/',null=True,blank=True)
     likes = models.PositiveIntegerField(default=0)
-
+    
+from django.contrib.auth.models import User
 class Comment(models.Model):
     post = models.ForeignKey(techblog, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

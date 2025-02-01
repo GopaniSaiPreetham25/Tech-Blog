@@ -4,13 +4,11 @@ from .views import *
 app_name = 'myapp'
 
 urlpatterns = [
-    path('', home, name='home'),
-    path('home/', home, name='home'),  # Keeping one home URL
+    path('', home, name='home'), 
     path('login/', login, name='login'),
     path('createacc/', createacc, name='createacc'),
     path('blog/', blog, name='blog'),
     path('main/', main, name='main'),
     path('blog/<int:post_id>/', post_detail, name='post_detail'), 
-    path('about/',about,name='about')# Detail page for posts
-
+    path('about/',about,name='about')
 ]

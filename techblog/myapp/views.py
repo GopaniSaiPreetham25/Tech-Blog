@@ -10,10 +10,8 @@ def blog(request):
             return redirect('myapp:main')
     else:
         form = techblogForm()
-
     posts = techblog.objects.all().order_by('-id')  
     return render(request, 'blog.html', {'form': form, 'posts': posts})
-
 
 def main(request):
     data = techblog.objects.all()
@@ -38,7 +36,6 @@ def createacc(request):
     else:
         form1 = CreateAccountForm()
     return render(request, "createacc.html", {'form': form1})
-
 
 def update(request, id):
     obj = get_object_or_404(techblog, id=id)
