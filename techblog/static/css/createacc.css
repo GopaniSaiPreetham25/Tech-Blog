@@ -109,5 +109,10 @@ input[type="submit"]:hover {
 /* Responsive Design */
 @media (max-width: 400px) {
     .card {
+<<<<<<< HEAD
         width:90%;}
+=======
+        width: 90%;
+    }
+>>>>>>> 81e0891708354be746ece3a9ecffbf714c9ffa62
 }
