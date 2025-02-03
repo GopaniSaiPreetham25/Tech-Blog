@@ -1,8 +1,10 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404,HttpResponse
 from .models import techblog
-from .forms import techblogForm, CreateAccountForm
+from .forms import *
 from django.shortcuts import render
 from datetime import datetime
+from django.contrib.auth.decorators import login_required
+
 
 def blog(request):
     if request.method == 'POST':
@@ -15,6 +17,7 @@ def blog(request):
     posts = techblog.objects.all().order_by('-id')  
     return render(request, 'blog.html', {'form': form, 'posts': posts})
 
+@login_required
 def main(request):
     data = techblog.objects.all()
     return render(request, 'main.html', {'data': data})
@@ -26,18 +29,63 @@ def post_detail(request, post_id):
 def home(request):
     return render(request, 'home.html')
 
-def login(request):
-    return render(request, 'login.html')
+
+
+from django.contrib.auth import authenticate, login,logout # Import login function
+from django.shortcuts import render, redirect
+from django.contrib import messages
+
+def loginview(request):
+    l1 = loginForm()
+    if request.method == 'POST':
+        f1 = loginForm(request.POST)
+        if f1.is_valid():
+            username = f1.cleaned_data.get('username')  # Make sure you're using 'username', not 'email'
+            password = f1.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user:
+                login(request, user)
+                messages.success(request, "Login successful!")
+                return redirect('myapp:main')
+            else:
+                messages.error(request, "Invalid username or password")
+    return render(request, 'login.html', {'form': l1})
+
+    
+def logoutview(request):
+    logout(request)
+    return redirect('myapp:login')
+
+
+
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+from django.contrib.auth.hashers import make_password
+
 
 def createacc(request):
     if request.method == 'POST':
-        form1 = CreateAccountForm(request.POST)
-        if form1.is_valid():
-            form1.save()
-            return redirect('myapp:main')
-    else:
-        form1 = CreateAccountForm()
-    return render(request, "createacc.html", {'form': form1})
+        username = request.POST['username']
+        password = request.POST['password']
+        confirm_password = request.POST['confirm-password']
+
+        # Check if passwords match
+        if password != confirm_password:
+            return render(request, 'createacc.html', {'error': 'Passwords do not match'})
+
+        # Hash the password before saving
+        hashed_password = make_password(password)
+
+        # Create the user with the hashed password
+        user = User(username=username, password=hashed_password)
+        user.save()
+
+        # Redirect to login or another page
+        return redirect('myapp:login')
+    return render(request, 'createacc.html')
+
+
+
 
 def update(request, id):
     obj = get_object_or_404(techblog, id=id)
@@ -60,3 +108,9 @@ def about(request):
         'year': datetime.now().year
     }
     return render(request, 'about.html', context)
+
+
+
+
+
+

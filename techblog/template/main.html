@@ -49,22 +49,16 @@
             <section id="blog">
                 <h2>Recent Posts</h2>
                 <div class="posts">
-                    {% if data.image %}
-                    {{ data.image.url }}
-                    {% endif %}
-
-                    
                     {% for post in data %}
-    
                     <div class="post">
-                        <img src="" alt="image">
+                        <img src="{{ post.photo.url }}" alt="image">
                         <div class="post-content">
                             <h3>{{ post.title }}</h3>
                             <p class="post-date">{{ post.date_posted|date:"F j, Y" }}</p>
                             <p class="post-excerpt">{{ post.discription|slice:":200" }}...</p>
                             <a href="{% url 'myapp:post_detail' post.id %}">Read More</a>
                             
-                            <!-- Like and Comment Section -->
+                           
                              
                             <div class="post-actions">
                                 <button onclick="likePost({{ post.id }})">Like (<span id="like-count-{{ post.id }}">{{ post.likes }}</span>)</button>
