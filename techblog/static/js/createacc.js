@@ -1,11 +1,11 @@
 document.getElementById('create-account-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const email = document.getElementById('email').value.trim();
+    const username = document.getElementById('username').value.trim();
     const password = document.getElementById('password').value.trim();
     const confirmPassword = document.getElementById('confirm-password').value.trim();
 
-    if (!email || !password || !confirmPassword) {
+    if (!username || !password || !confirmPassword) {
       alert('All fields are required!');
       return;
     }
