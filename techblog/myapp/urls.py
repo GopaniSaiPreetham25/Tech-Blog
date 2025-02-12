@@ -11,8 +11,12 @@ urlpatterns = [
     path('createacc/', createacc, name='createacc'),
     path('blog/', blog, name='blog'),
     path('main/', main, name='main'),
+    path('profile/', profile, name='profile'),
     path('blog/<int:post_id>/', post_detail, name='post_detail'),
     path('about/', about, name='about'),
+    path('blog/update/<int:id>/', update, name='update'),
+    path('blog/delete/<int:id>/', delete, name='delete'),
+  
   
 ]
 
