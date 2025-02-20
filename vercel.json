@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "mypro/wsgi.py",
+        "src": "techblog/wsgi.py",
         "use": "@vercel/python",
         "config": {
           "maxLambdaSize": "15mb",
@@ -20,7 +20,7 @@
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "mypro/wsgi.py"  
+        "dest": "techblog/wsgi.py"  
       }
     ],
     "outputDirectory": "static"
