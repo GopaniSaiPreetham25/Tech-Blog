@@ -12,10 +12,12 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import pymysql
+pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+MEDIA_ROOT=os.path.join(BASE_DIR,'static')
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
 
@@ -41,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp'
+    'myapp','cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -74,16 +77,57 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'techblog.wsgi.application'
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': 'dhmafr0i8',
+#     'API_KEY': '767672877535875',
+#     'API_SECRET': 'RUVrOvw2ELVPc9XQ-5LgSBc0G7w',
+# }
+
+import cloudinary
+
+cloudinary.config(  
+    cloud_name="dhmafr0i8",  
+    api_key="767672877535875",  
+    api_secret="RUVrOvw2ELVPc9XQ-5LgSBc0G7w"  
+)
+
+import cloudinary
+import os
+
+cloudinary.config(
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME", "dhmafr0i8"),
+    api_key=os.getenv("CLOUDINARY_API_KEY", "767672877535875"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET", "RUVrOvw2ELVPc9XQ-5LgSBc0G7w"),
+)
+
+
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+import os
+import dj_database_url
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'railway',
+        'USER': 'root',
+        'PASSWORD': 'IoeHqoOoNAEmyeEhDjNipRTFqHzFxRil',
+        'HOST': 'junction.proxy.rlwy.net',
+        'PORT': '45129',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
 }
+
 
 
 # Password validation
