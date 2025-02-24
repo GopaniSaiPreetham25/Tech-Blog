@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
@@ -114,6 +114,7 @@ def createacc(request):
 
         messages.success(request, "Account created successfully! Please log in.")
         return redirect('myapp:login')
+
     return render(request, 'createacc.html')
 
 

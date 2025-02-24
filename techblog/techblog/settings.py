@@ -21,6 +21,11 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'static')
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
 
+TEMPLATE_DIR=os.path.join(BASE_DIR,'template')
+
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -31,7 +36,7 @@ SECRET_KEY = 'django-insecure-o5f_m0pq=l_96ng#q8pk@1v8tc#(uu=c$el)sbqwvj)d#7b(tr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -45,10 +50,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp','cloudinary',
     'cloudinary_storage',
+    'whitenoise',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -170,6 +177,8 @@ MEDIA_URL='media/'
 
 STATICFILES_DIRS = [BASE_DIR/'static']
 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 
 # Default primary key field type
@@ -183,3 +192,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #     'django.contrib.auth.backends.ModelBackend',
 # ]
 # AUTH_USER_MODEL = "myapp.CustomUser"
+
