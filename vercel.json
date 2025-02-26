@@ -1,14 +1,14 @@
 {
   "builds": [
     {
-      "src": "techblog/wsgi.py",
+      "src": "backend/techblog/wsgi.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "techblog/wsgi.py"
+      "dest": "backend/techblog/wsgi.py"
     }
   ]
 }
